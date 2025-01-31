@@ -40,7 +40,7 @@ qgp=PromptTemplate(      #qgp-quiz generation prompt
 quiz_chain=LLMChain(llm=llm,prompt=qgp,output_key="quiz",verbose=True)
 
 
-template="""
+template2="""
 You are an expert english grammarian and writer. Given a Multiple Choice Quiz for {subject} students.\
 You need to evaluate the complexity of the question and give a complete analysis of the quiz. Only use max 50 words for complexity.
 If the quiz is not per the cognitive and analytical abilities of the students,\
@@ -52,7 +52,7 @@ Check from an expert English writer of the above quiz:
 """
 
 qep=PromptTemplate(      #qep - quiz evaluation template
-    input_variable=["subject","quiz"], template=template
+    input_variable=["subject","quiz"], template=template2
 )
 
 review_chain=LLMChain(llm=llm,prompt=qep,output_key="review",verbose=True)
